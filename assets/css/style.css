@@ -1,0 +1,108 @@
+/* ============================================
+   AI Creative Report - Landing Page Styles
+   ============================================ */
+
+/* --- Base / Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* --- Comic Border Utility --- */
+.comic-border {
+  border: 3px solid #1A1A1A;
+}
+
+/* --- Text Effects --- */
+.text-shadow-comic {
+  text-shadow: 2px 2px 0px #1A1A1A;
+}
+
+/* --- Details/Summary reset for Q&A --- */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  list-style: none;
+}
+
+/* --- Spinning CTA background animation --- */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 120s linear infinite;
+}
+
+/* --- Smooth fade-in for scroll reveals --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Hero tag wobble animation --- */
+@keyframes wobble {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.animate-wobble {
+  animation: wobble 3s ease-in-out infinite;
+}
+
+/* --- Hover lift for cards --- */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+}
+
+/* --- Focus styles for accessibility --- */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #00E0FF;
+  outline-offset: 2px;
+}
+
+/* --- Skip link for accessibility --- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: #1A1A1A;
+  color: #fff;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+}
