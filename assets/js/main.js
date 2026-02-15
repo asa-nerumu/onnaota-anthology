@@ -26,4 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Smooth scrolling is handled by CSS scroll-behavior: smooth
   // No JS override needed — this preserves URL hash updates and browser back-button behavior
+
+  // --- Back to Top Button ---
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+        backToTopBtn.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopBtn.classList.remove('opacity-100', 'visible');
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 });
